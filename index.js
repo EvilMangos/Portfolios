@@ -26,6 +26,15 @@ app.use(cookieParser(config.secretKey));
 
 app.use(passport.initialize());
 
+app.all("*", (req, res, next) => {
+  console.log(`https://${config.HOST}:${arr.get("secPort")}`);
+  if (req.protocol !== "https") {
+    res.redirect(`https://${config.HOST}:${arr.get("secPort")}`);
+  } else {
+    next();
+  }
+});
+
 app.use(express.static(__dirname + "/public"));
 
 //

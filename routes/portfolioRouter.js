@@ -3,11 +3,11 @@ const express = require("express");
 const Portfolios = require("../models/portfolios");
 const authenticate = require("../authenticate");
 
-const commentRouter = require("./commentRouter");
+const imageRouter = require("./imageRouter");
 
 const portfolioRouter = express.Router();
 
-portfolioRouter.use(commentRouter);
+portfolioRouter.use(imageRouter);
 
 portfolioRouter
   .route("/")

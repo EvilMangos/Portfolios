@@ -5,7 +5,7 @@ const User = require("../models/users");
 const Portfolios = require("../models/portfolios");
 const authenticate = require("../authenticate");
 
-const commentRouter = require("./commentRouter");
+const imageRouter = require("./imageRouter");
 
 const userRouter = express.Router();
 
@@ -54,7 +54,7 @@ userRouter
     });
   });
 
-userRouter.use("/:userId/portfolios", commentRouter);
+userRouter.use("/:userId/portfolios", imageRouter);
 
 userRouter.get("/:userId/portfolios", (req, res, next) => {
   console.log(req.params.userId);
